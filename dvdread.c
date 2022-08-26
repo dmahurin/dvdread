@@ -216,6 +216,12 @@ int main(int argc, char *argv[]) {
         if (start && len) addfile(fname, start, len);
     }
 
+    if(s1 == 0 && s2 == 0) {
+        for(int i = 0; i < nfiles; i++) {
+            fprintf(stderr, "%d %d %s\n", file[i].start, file[i].end, file[i].fname);
+        }
+    }
+
     /* Initialize libdvdcss */
     dvdcss = dvdcss_open(argv[1]);
     if (dvdcss == NULL) {
